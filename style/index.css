@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle, #e3f2fd, #90caf9);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 40px;
+    color: #0d47a1;
+}
+
+p {
+    margin-top: 10px;
+    color: #1565c0;
+}
+
+/* Relógio */
+.relogio {
+    position: relative;
+    margin-top: 60px;
+    width: 300px;
+    height: 300px;
+    border: 8px solid #0d47a1;
+    border-radius: 50%;
+    background-color: #e1f5fe;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* Ponto central */
+.relogio::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #0d47a1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Ponteiro que gira */
+.ponteiro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 140px;
+    background: rgb(0, 26, 255);
+    transform-origin: top center;
+    transform: rotate(0deg);
+    pointer-events: none;
+    transition: transform 0.02s linear;
+    opacity: 1;
+    border-radius: 10px;
+}
+
+
+/* Botão em 12h */
+.btn-12h {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+.btn-12h:hover {
+    background-color: #1565c0;
+}
+
+.btn-3h {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    padding: 10px 14px;
+    background-color: #42a5f5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 120px;              /* Largura ideal para 3 palavras médias */
+    text-align: center;
+    line-height: 1.6;
+    white-space: normal;       /* Permite quebra de linha */
+    word-wrap: break-word;     /* Quebra se necessário */
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+.btn-3h:hover {
+    background-color: #1565c0;
+}

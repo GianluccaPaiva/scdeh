@@ -1,55 +1,122 @@
-async function pegarDatas() {
-    const dataInicial = document.getElementById('data_inicial').value;
-    const dataFinal = document.getElementById('data_final').value;
+        // Formata data local YYYY-MM-DD para comparação
 
-    if (dataInicial && dataFinal) {
-        const diasUteis = await calculaDiasUteis(dataInicial, dataFinal);
-        console.log(`Dias úteis entre ${dataInicial} e ${dataFinal}:`, diasUteis);
-    } else {
-        console.error("Por favor, preencha ambas as datas.");
-    }
+function ajustarMeioDia(data) {
+  const d = new Date(data);
+  d.setHours(12, 0, 0, 0);
+  return d;
+}
+function criarDataLocal(ano, mes, dia) {
+    return new Date(ano, mes - 1, dia, 12, 0, 0, 0);
+}
+
+
+function formatarDataLocal(date) {
+    const ano = date.getFullYear();
+    const mes = String(date.getMonth() + 1).padStart(2, '0');
+    const dia = String(date.getDate()).padStart(2, '0');
+    return `${ano}-${mes}-${dia}`;
 }
 
 async function calculaDiasUteis(dataInicial, dataFinal) {
-    const diasUteis = [];
+    console.log('Recebido dataInicial:', dataInicial);
+    console.log('Recebido dataFinal:', dataFinal);
 
-    const dataAtual = new Date(dataInicial);
-    const dataLimite = new Date(dataFinal);
+    // Criando datas locais corretamente para evitar deslocamento
+    const [anoI, mesI, diaI] = dataInicial.split('-').map(Number);
+    const [anoF, mesF, diaF] = dataFinal.split('-').map(Number);
 
-    // Normaliza as datas
-    dataAtual.setHours(0, 0, 0, 0);
-    dataLimite.setHours(0, 0, 0, 0);
+    const dataInicio = criarDataLocal(anoI, mesI, diaI);
+    const dataFim = criarDataLocal(anoF, mesF, diaF);
 
-    // Avança para o dia seguinte ao inicial
-    dataAtual.setDate(dataAtual.getDate() + 1);
+    console.log('DataInicio ajustada:', dataInicio.toString());
+    console.log('DataFim ajustada:', dataFim.toString());
 
-    // Coleta os anos envolvidos
-    const anos = new Set();
-    let tempDate = new Date(dataAtual);
-    while (tempDate <= dataLimite) {
-        anos.add(tempDate.getFullYear());
-        tempDate.setFullYear(tempDate.getFullYear() + 1);
+    if (dataInicio > dataFim) {
+        throw new Error('Data inicial é maior que data final!');
     }
 
-    // Busca feriados
+    const anos = new Set([dataInicio.getFullYear(), dataFim.getFullYear()]);
+    console.log('Anos para buscar feriados:', [...anos]);
+
     const feriados = new Set();
     for (const ano of anos) {
         const response = await fetch(`https://brasilapi.com.br/api/feriados/v1/${ano}`);
+        if (!response.ok) throw new Error('Erro ao buscar feriados para o ano ' + ano);
         const feriadosAno = await response.json();
         feriadosAno.forEach(f => feriados.add(f.date));
     }
+    console.log('Feriados carregados:', feriados);
 
-    // Verifica dias úteis a partir do dia seguinte
-    while (dataAtual <= dataLimite) {
-        const diaDaSemana = dataAtual.getDay();
-        const dataFormatada = dataAtual.toISOString().split('T')[0];
+    let iterDate = new Date(dataInicio);
+    const diasUteis = [];
 
-        if (diaDaSemana !== 0 && diaDaSemana !== 6 && !feriados.has(dataFormatada)) {
-            diasUteis.push(new Date(dataAtual));
+    console.log('Iniciando loop...');
+    while (iterDate <= dataFim) {
+        const dataFormatada = formatarDataLocal(iterDate);
+        const diaDaSemana = iterDate.getDay();
+        const ehFeriado = feriados.has(dataFormatada);
+
+        console.log(`-> ${dataFormatada} | Dia da semana: ${diaDaSemana} | Feriado? ${ehFeriado}`);
+
+        if (diaDaSemana !== 0 && diaDaSemana !== 6 && !ehFeriado) {
+            diasUteis.push(new Date(iterDate));
         }
 
-        dataAtual.setDate(dataAtual.getDate() + 1);
+        iterDate.setDate(iterDate.getDate() + 1);
     }
+    console.log('Loop finalizado.');
 
     return diasUteis;
+}
+
+
+async function calculaDiasCorridos(dataInicial, dataFinal) {
+            const diasCorridos = [];
+
+            const dataInicio = ajustarMeioDia(dataInicial);
+            const dataFim = ajustarMeioDia(dataFinal);
+
+            let iterDate = new Date(dataInicio);
+            while (iterDate <= dataFim) {
+                diasCorridos.push(new Date(iterDate));
+                iterDate.setDate(iterDate.getDate() + 1);
+            }
+
+            return diasCorridos;
+}
+
+function formatarDataBr(dataStr) {
+    const [ano, mes, dia] = dataStr.split('-');
+    return `${dia}/${mes}/${ano}`;
+}
+
+async function pegarDatas() {
+    const dataInicial = document.getElementById('data_inicial').value;
+    const dataFinal = document.getElementById('data_final').value;
+    const resultadoDiv = document.getElementById('resultado');
+
+    resultadoDiv.innerHTML = '';
+
+    if (!dataInicial || !dataFinal) {
+        resultadoDiv.innerHTML = '<span class="erro">Por favor, preencha ambas as datas.</span>';
+        return;
+    }
+
+    if (new Date(dataInicial) > new Date(dataFinal)) {
+        resultadoDiv.innerHTML = '<span class="erro">Data Inicial deve ser anterior ou igual à Data Final.</span>';
+        return;
+    }
+
+    try {
+        const diasUteis = await calculaDiasUteis(dataInicial, dataFinal);
+        const diasCorridos = await calculaDiasCorridos(dataInicial, dataFinal);
+
+        resultadoDiv.innerHTML = `
+            <p>Dias úteis entre <b>${formatarDataBr(dataInicial)}</b> e <b>${formatarDataBr(dataFinal)}</b>: <b>${diasUteis.length}</b></p>
+            <p>Dias corridos entre <b>${formatarDataBr(dataInicial)}</b> e <b>${formatarDataBr(dataFinal)}</b>: <b>${diasCorridos.length}</b></p>
+        `;
+    } catch (error) {
+        resultadoDiv.innerHTML = `<span class="erro">Erro ao calcular: ${error.message}</span>`;
+        console.error(error);
+    }
 }

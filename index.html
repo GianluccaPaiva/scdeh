@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Relógio Interativo</title>
+    <link rel="stylesheet" href="style/index.css">
 </head>
-<body id = "principal">
-    <h1>Bem-vindo à página principal!</h1>
-    <p>Esta é a para os calculos consequintes </p>
-    <button onclick="location.href='calcula_dias_uteis.html'">Ir para a Calculadora de dias úteis</button>
-    
+<body>
+    <h1>Bem-vindo à página principal de cálculos temporais do sdech!</h1>
+    <p>Passe o mouse sobre o relógio para ver o ponteiro em ação!</p>
+
+    <div class="relogio" id="relogio">
+        <div class="ponteiro" id="ponteiro"></div>
+        <button class="btn-12h" onclick="location.href='calcula_dias_uteis.html'">
+            Ir para a Calculadora de dias úteis e corridos
+        </button>
+        <button class="btn-3h" onclick="location.href='calcula_qual_dia.html'">
+            Ir para qual dia que cairá à partir de uma hora
+        </button>
+    </div>
+
+    <script src="scripts/ponteiro.js"></script>
 </body>
 </html>

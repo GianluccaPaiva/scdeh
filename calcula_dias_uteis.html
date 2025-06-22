@@ -2,10 +2,12 @@
 <html lang="pt-br">
 <head>
     <script src="scripts/calcula_dias_uteis.js" defer></script>
+    <link rel="stylesheet" href="style/calcula_dias.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de dias úteis</title>
+    <title>Calculadora de dias </title>
 </head>
+
 <body id = "calcula_dias_uteis">
     <p>Bem vindo à Calculadora de dias úteis por favor faça conforme cada bloco</p>
     <form id = "dias uteis">
@@ -13,7 +15,8 @@
         <input type="date" id="data_inicial" name="data_inicial" required>
         <label for = "data_final">Data Final: </label>
         <input type="date" id="data_final" name="data_final" required>
-        <button type="button" onclick="pegarDatas()">Calcular Dias Úteis</button>
+        <button type="button" onclick="pegarDatas()">Calcular Dias Úteis e Corridos</button>
+        <div id="resultado" style="margin-top: 30px; color: #000000; font-weight: 600;"></div>
         <button type="reset">Limpar</button>
         <button type="button" onclick="location.href='index.html'">Voltar</button>
     </form>

@@ -1,0 +1,102 @@
+/* style/calcula_dias_uteis.css */
+
+body#calcula_dias_uteis {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0d47a1, #1976d2);
+    color: #e3f2fd;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body#calcula_dias_uteis p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 600px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+form#dias\ uteis {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+}
+
+form#dias\ uteis label {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #bbdefb;
+    font-weight: 600;
+    text-shadow: 0 0 5px #1565c0;
+}
+
+form#dias\ uteis input[type="date"] {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    outline: none;
+    box-shadow: inset 0 0 5px #90caf9;
+    transition: box-shadow 0.3s ease;
+}
+
+form#dias\ uteis input[type="date"]:focus {
+    box-shadow: 0 0 10px #ffc107;
+    background-color: #e3f2fd;
+    color: #0d47a1;
+}
+
+form#dias\ uteis button {
+    cursor: pointer;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 10px rgba(255, 193, 7, 0.5);
+}
+
+form#dias\ uteis button[type="button"] {
+    background-color: #ffc107;
+    color: #0d47a1;
+    box-shadow: 0 5px 15px #ffb300;
+}
+
+form#dias\ uteis button[type="button"]:hover {
+    background-color: #ffa000;
+    box-shadow: 0 8px 20px #ff8f00;
+}
+
+form#dias\ uteis button[type="reset"] {
+    background-color: #1976d2;
+    color: #e3f2fd;
+    box-shadow: 0 5px 15px #1565c0;
+}
+
+form#dias\ uteis button[type="reset"]:hover {
+    background-color: #0d47a1;
+    box-shadow: 0 8px 20px #0b3c91;
+}
+
+form#dias\ uteis button:last-child {
+    background-color: #42a5f5;
+    color: #e3f2fd;
+    box-shadow: 0 5px 15px #1e88e5;
+}
+
+form#dias\ uteis button:last-child:hover {
+    background-color: #1e88e5;
+    box-shadow: 0 8px 20px #1565c0;
+}
