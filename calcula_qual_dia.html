@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="style/calcula_qual_dia.css">
+    <script src="scripts/calcula_qual_dia.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de qual dia à partir de uma data e hora</title>
+</head>
+<body id="calcula_qual_dia">
+    <h1>Bem vindo ao Calculadora de qual dia à partir de uma data e hora, por favor siga conforme cada caixa</h1>
+    <form id="qual_dia">
+        <label for="data">Data Inicial: </label>
+        <input type="date" id="data" name="data" required>
+
+        <label for="horas_acrescentar">Horas a adicionar: </label>
+        <input type="number" id="horas_acrescentar" name="horas" min="0" required>
+        
+        <button type="button" onclick="pegarData_e_hora()">Calcular Dia</button>
+        
+        <div id="resultado" style="margin-top: 30px; color: #000000; font-weight: 600;"></div>
+        
+        <button type="reset">Limpar</button>
+        <button type="button" onclick="location.href='index.html'">Voltar</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style/calcula_qual_dia_pelo_dia.css">
+    <script src="scripts/calcula_qual_dia_pelo_dia.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual dia que vai ser pela data e dia</title>
+</head>
+<body id = "calcula_qual_dia_pelo_dia">
+    <h1>Bem-vindo ao Calculadora de qual dia que vai ser pela data e dia</h1>
+    <form id="qual_dia_pelo_dia">
+        <label for="data_inicial">Data Inicial: </label>
+        <input type="date" id="data_inicial" name="data_inicial" required>
+
+        <label for="dias">Quantidade de dias: </label>
+        <input type="number" id="dias" name="dias" required>
+
+        <button type="button" onclick="pegarData_e_dias()">Calcular Qual Dia</button>
+
+        <div id="resultado" style="margin-top: 30px; color: #000000; font-weight: 600;"></div>
+
+        <button type="reset">Limpar</button>
+        <button type="button" onclick="location.href='index.html'">Voltar</button>
+</body>
+</html>

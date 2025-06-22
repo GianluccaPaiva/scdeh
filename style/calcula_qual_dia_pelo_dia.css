@@ -1,0 +1,96 @@
+/* Reset e estrutura base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #212121, #424242);
+    color: #e3f2fd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8em;
+    color: #90caf9;
+}
+
+/* Formulário centralizado */
+form#qual_dia_pelo_dia {
+    background-color: #263238;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    padding: 30px 40px;
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Labels e Inputs */
+form label {
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #b3e5fc;
+}
+
+form input {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #4fc3f7;
+    border-radius: 8px;
+    background-color: #37474f;
+    color: white;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #29b6f6;
+    background-color: #455a64;
+}
+
+/* Botões */
+form button {
+    padding: 10px 20px;
+    background-color: #29b6f6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #0288d1;
+}
+
+form button[type="reset"],
+form button[type="button"]:last-child {
+    background-color: #90a4ae;
+    color: #263238;
+}
+
+form button[type="reset"]:hover,
+form button[type="button"]:last-child:hover {
+    background-color: #78909c;
+}
+
+/* Resultado */
+#resultado {
+    text-align: center;
+    font-size: 1.1em;
+    color: #e1f5fe;
+    margin-top: 10px;
+    padding-top: 10px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Horas</title>
+    <link rel="stylesheet" href="style/conversor_horas.css">
+    <script src="scripts/conversor_horas.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Conversor de Horas</h1>
+
+    <section id="decimal-para-hms">
+        <h2>Converter de horas decimais para Horas, Minutos e Segundos</h2>
+        <label for="input_decimal">Horas decimais:</label>
+        <input type="number" id="input_decimal" step="0.01" placeholder="Ex: 1.75">
+        <button onclick="pegarDecimal()">Converter</button>
+        <p id="saida_hms"></p>
+    </section>
+
+    <hr style="margin: 40px 0;">
+
+    <section id="hms-para-decimal">
+        <h2>Converter de Horas, Minutos e Segundos para horas decimais</h2>
+        <label for="horas">Horas:</label>
+        <input type="number" id="horas" min="0" placeholder="Ex: 1">
+
+        <label for="minutos">Minutos:</label>
+        <input type="number" id="minutos" min="0" max="59" placeholder="Ex: 45">
+
+        <label for="segundos">Segundos:</label>
+        <input type="number" id="segundos" min="0" max="59" placeholder="Ex: 30">
+
+        <button onclick="pegarHMS()">Converter</button>
+        <p id="saida_decimal"></p>
+    </section>
+</body>
+</html>
