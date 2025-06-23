@@ -25,7 +25,7 @@ async function calculaDiaQueVaiSer(dataStr, horas, resultadoDiv) {
     const dataFormatada = dataInicial.toLocaleDateString('pt-BR');
 
     resultadoDiv.innerHTML = `
-        <p>Nova data e hora: <b>${dataFormatada}</b> (${diaDaSemana})</b></p>
+        <p>Nova data: <b>${dataFormatada}</b> (${diaDaSemana})</b></p>
     `;
 }
 

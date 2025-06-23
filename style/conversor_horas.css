@@ -1,1 +1,159 @@
-body{}
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a5cd6, #ffffff);
+    color: #333;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #004080;
+}
+
+section {
+    background-color: #f9f9f9;
+    border: 2px solid #cce0ff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 1.4em;
+    color: #0066cc;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: 600;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: border 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #3399ff;
+    outline: none;
+    background-color: #f0f8ff;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    background-color: #3399ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #267acc;
+}
+
+#saida_hms,
+#saida_decimal {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #006600;
+    font-weight: 500;
+    background-color: #e6ffe6;
+    border: 1px solid #b3ffb3;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    section {
+        padding: 20px 15px;
+    }
+}
+
+.bloco-funcao {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Garante que o section (o bloco funcional) ocupe espaço suficiente */
+.bloco-funcao section {
+    flex: 1 1 350px;
+    min-width: 300px;
+}
+
+/* Caixa de explicação à direita */
+.explicacao {
+    flex: 0 1 300px;
+    background-color: #fff8e1;
+    border-left: 4px solid #ffd54f;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.95em;
+    color: #5d4037;
+    max-width: 350px;
+}
+
+.explicacao h3 {
+    margin-bottom: 10px;
+    color: #f57c00;
+}
+
+.explicacao code {
+    background-color: #ffe082;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .bloco-funcao {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .explicacao {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+}

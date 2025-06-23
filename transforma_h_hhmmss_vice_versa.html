@@ -15,9 +15,20 @@
         <label for="input_decimal">Horas decimais:</label>
         <input type="number" id="input_decimal" step="0.01" placeholder="Ex: 1.75">
         <button onclick="pegarDecimal()">Converter</button>
-        <p id="saida_hms"></p>
+        <button onclick="limparDecimal()">Limpar</button>
+        <div id="saida_hms"></div>
     </section>
-
+            <div class="explicacao">
+            <h3>O que faz?</h3>
+            <p>
+                Esta função converte um número decimal de horas em um formato tradicional, exibindo a quantidade de horas, minutos e segundos.
+                Por exemplo: <code>1.5</code> se transforma em <code>1 hora, 30 minutos e 0 segundos</code>.
+            </p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 50px;">
+        <button type="button" onclick="location.href='index.html'">Voltar</button>
+    </div>
     <hr style="margin: 40px 0;">
 
     <section id="hms-para-decimal">
@@ -32,7 +43,20 @@
         <input type="number" id="segundos" min="0" max="59" placeholder="Ex: 30">
 
         <button onclick="pegarHMS()">Converter</button>
+        <button onclick="limparHMS()">Limpar</button>
         <p id="saida_decimal"></p>
     </section>
+
+    <div class="explicacao">
+            <h3>O que faz?</h3>
+            <p>
+                Esta função pega valores de horas, minutos e segundos e converte tudo para um número decimal.
+                Por exemplo: <code>1 hora, 30 minutos</code> vira <code>1.5</code>.
+            </p>
+        </div>
+
+    <div style="text-align: center; margin-top: 50px;">
+        <button type="button" onclick="location.href='index.html'">Voltar</button>
+    </div>
 </body>
 </html>
