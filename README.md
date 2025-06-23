@@ -1,4 +1,4 @@
-# sched(Sistema de Claculo De Hora E Data)
+# sched(Sistema de Cálculo De Hora E Data)
 O sched é um sistema de cálculo de hora e data que permite realizar operações de manipulação de datas e horas.
 
 Funcionalidades
