@@ -156,3 +156,14 @@ p {
 .btn-9h:hover {
     background-color: #1565c0;
 }
+
+.sobre_programa{
+    position: absolute;
+    bottom: 20px;
+    left: 49%;
+    transform: translateX(-50%);
+    color: #0d47a1;
+    font-size: 14px;
+    text-align: center;
+    width: 80%;
+}
