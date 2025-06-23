@@ -17,6 +17,12 @@
         <label for="dias">Quantidade de dias: </label>
         <input type="number" id="dias" name="dias" required>
 
+        <label for="tipo_calculo">Tipo de cálculo:</label>
+        <select id="tipo_calculo" name="tipo_calculo">
+            <option value="corridos">Dias Corridos</option>
+            <option value="uteis">Dias Útéis</option>
+        </select>
+
         <button type="button" onclick="pegarData_e_dias()">Calcular Qual Dia</button>
 
         <div id="resultado" style="margin-top: 30px; color: #000000; font-weight: 600;"></div>
@@ -28,7 +34,8 @@
             <h3>Como funciona</h3>
             <p>Informe uma <strong>data inicial</strong> e a <strong>quantidade de dias</strong> a partir dela.</p>
             <p>Ao clicar em <code>Calcular Qual Dia</code>, o sistema mostrará a data exata que corresponde ao número de dias informado.</p>
-            <p>Isso considera dias corridos (incluindo finais de semana).</p>
+            <p>Isso considera dias corridos (incluindo finais de semana e feriados nacionais) ou dias úteis (excluindo fins de semana e feriados nacionais).</p>
+            <p>Para o cálculo de dias úteis, o sistema utiliza a <a href="https://brasilapi.com.br" target="_blank">BrasilAPI</a> para verificar os feriados nacionais do ano escolhido.</p>
     </aside>
 </body>
 </html>

@@ -90,7 +90,7 @@ form button[type="button"]:last-child:hover {
 #resultado {
     text-align: center;
     font-size: 1.1em;
-    color: #e1f5fe;
+    color: #ffffff;
     margin-top: 10px;
     padding-top: 10px;
 }
@@ -141,3 +141,10 @@ form button[type="button"]:last-child:hover {
                 margin-top: 20px;
             }
         }
+
+    #tipo_calculo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #007cb9;
+    }
